@@ -11,5 +11,6 @@ export class RoomCardComponent {
   @Input() color: string ="card-light-blue";
   @Input() roomName: string ="card-light-blue";
   @Input() roomStatus: string ="Empty";
+  @Input() roomTime: string ="00:00";
 
 }
