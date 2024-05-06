@@ -53,7 +53,7 @@ export class AppComponent {
     this.hideAllRoom();
     this.showFortRoom = true;
   }
-
+ 
   showDiving() {
     this.hideAllRoom();
     this.showDivingRoom = true;
@@ -80,7 +80,7 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.FortRoomStatus = e?.status;
-          this.FortTime=e.time;
+          this.FortTime=e.time;  
         }
       }
     );
