@@ -26,7 +26,7 @@ export class TeamService {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RGBColor?newColor=' + rgbcolor);
   }
   ControlObstacle(roomName1: string, roomName: string, status: boolean): Observable<any> {
-    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/status?status=' + status);
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/Obstacle?status=' + status);
   }
 
   // getTeamMembers(): Observable<any[]> {
