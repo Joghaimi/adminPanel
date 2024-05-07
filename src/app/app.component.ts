@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RoomCardComponent } from './component/room-card/room-card.component';
@@ -8,20 +8,14 @@ import { DivingRoomComponent } from './diving-room/diving-room.component';
 import { PlusRoomComponent } from './plus-room/plus-room.component';
 import { FloorRoomComponent } from './floor-room/floor-room.component';
 import { TeamService } from './services/TeamService';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { interval } from 'rxjs';
+import { take } from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet,
-    RoomCardComponent, FortRoomComponent,
-    ShootingRoomComponent,
-    DivingRoomComponent,
-    PlusRoomComponent,
-    FloorRoomComponent
-
-  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'adminPanel';
@@ -30,9 +24,9 @@ export class AppComponent {
   showDivingRoom = false;
   showPlusMinusRoom = false;
   showFloorIsLavaRoom = false;
-  
+
   FortRoomStatus = "Empty";
-  FortTime=0;
+  FortTime = 0;
   FloorIsLavaRoomStatus = "Empty";
   ShootingRoomStatus = "Empty";
   DivingRoomStatus = "Empty";
@@ -41,7 +35,20 @@ export class AppComponent {
 
   constructor(private teamService: TeamService) {
 
+
+
+
+
   }
+
+  getRoomsStatusEachSec() {
+    interval(1000)
+      .subscribe(() => {
+        this.getFortRoomStatusAndTime();
+      });
+  }
+
+
   hideAllRoom() {
     this.showFortRoom = false;
     this.showShootingRoom = false;
@@ -53,7 +60,7 @@ export class AppComponent {
     this.hideAllRoom();
     this.showFortRoom = true;
   }
- 
+
   showDiving() {
     this.hideAllRoom();
     this.showDivingRoom = true;
@@ -72,15 +79,14 @@ export class AppComponent {
     this.showFloorIsLavaRoom = true;
   }
 
-  getRoomStatusAndTime() {
-    //
+  getFortRoomStatusAndTime() {
     let gameUrl1 = "fort";
     let gameUrl = "fortRoom";
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
           this.FortRoomStatus = e?.status;
-          this.FortTime=e.time;  
+          this.FortTime = e.time;
         }
       }
     );
