@@ -51,7 +51,7 @@ export class AppComponent {
 
   constructor(private teamService: TeamService) {
 
-    this.getRoomsStatusEachSec();
+    // this.getRoomsStatusEachSec();
 
 
 
