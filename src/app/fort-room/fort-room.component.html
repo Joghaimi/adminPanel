@@ -129,13 +129,14 @@
                         <span class="text-muted">Door</span>
                     </div>
                     <div class="col-6">
-                        <select class="form-select  form-control">
-                            <option value="start">Open</option>
-                            <option value="Stop">Close</option>
+                        <select class="form-select form-control" #newDoorStatus>
+                            <option value="Open">Open</option>
+                            <option value="Close">Close</option>
+                            <option value="Undefined">Reset</option>
                         </select>
                     </div>
                     <div class="col-2">
-                        <button type="button" class="btn btn-success btn-rounded btn-icon">
+                        <button type="button" class="btn btn-success btn-rounded btn-icon" (click)="changeDoorStatus(newDoorStatus.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>

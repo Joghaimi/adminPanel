@@ -33,5 +33,8 @@ export class FortRoomComponent {
   changeRoomStatus(roomStatus: string) {
     this.teamService.ChangeRoomStatus(this.gameUrl1, this.gameUrl, roomStatus).subscribe();
   }
+  changeDoorStatus(doorStatus: string){
+    this.teamService.ChangeDoorStatus(this.gameUrl1, this.gameUrl, doorStatus).subscribe();
+  }
 
 }

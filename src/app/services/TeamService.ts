@@ -19,7 +19,9 @@ export class TeamService {
   ChangeRoomStatus(roomName1: string, roomName: string, roomStatus: string): Observable<any> {
     return this.httpClient.post('http://' + roomName1 + '.local:5000/api/' + roomName + '/RoomStatus?gameStatus=' + roomStatus, roomStatus);
   }
-
+  ChangeDoorStatus(roomName1: string, roomName: string, doorStatus: string): Observable<any> {
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/DoorControl?doorStatus=' + doorStatus);
+  }
 
 
   // getTeamMembers(): Observable<any[]> {
