@@ -41,13 +41,19 @@ export class AppComponent {
   ShootingScore: number = 0;
 
 
+  DivingRoomStatus = "Empty";
+  DivingTime = 0;
+  DivingDoorStatus = "Closed";
+  DivnigIsOnline = "Online";
+  DivnigTeamName = "--";
+  DivnigScore: number = 0;
+
 
   FloorIsLavaRoomStatus = "Empty";
   FloorIsLavaTime = 0;
 
  
-  DivingRoomStatus = "Empty";
-  DivingTime = 0;
+ 
 
   PlusRoomStatus = "Empty";
   PlusTime = 0;
@@ -63,6 +69,8 @@ export class AppComponent {
         // Card Info 
         this.getFortRoomStatusAndTime();
         this.getShootingRoomStatusAndTime();
+        this.getDivingRoomStatusAndTime();
+
 
         // FortRoom Shown
         if (this.showFortRoom) {
@@ -72,7 +80,8 @@ export class AppComponent {
         if (this.showShootingRoom) {
           this.getShootingRoomInfo();
         }
-
+        if(this.showDivingRoom)
+          this.getDivingRoomInfo();
 
 
 
@@ -166,7 +175,31 @@ export class AppComponent {
   }
 
 
-
+  getDivingRoomStatusAndTime(){
+    let gameUrl1 = "diving";
+    let gameUrl = "diving";
+    this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.DivingRoomStatus = e?.status;
+          this.DivingTime = e.time;
+        }
+      }
+    );
+  }
+  getDivingRoomInfo() {
+    let gameUrl1 = "diving";
+    let gameUrl = "diving";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.DivingRoomStatus = e?.doorStatus;
+          this.DivnigTeamName = e?.teamName;
+          this.DivnigScore = e?.score;
+        }
+      }
+    );
+  }
 
 
 }
