@@ -117,8 +117,6 @@ export class AppComponent {
         if (e != null) {
           this.FortRoomStatus = e?.status;
           this.FortTime = e.time;
-          console.log(this.FortRoomStatus);
-          console.log(this.FortTime);
         }
       }
     );
@@ -131,7 +129,7 @@ export class AppComponent {
         if (e != null) {
           this.FortDoorStatus = e?.doorStatus;
           this.FortTeamName = e?.teamName;
-          this.FortScore = e?.Score;
+          this.FortScore = e?.score;
         }
       }
     );

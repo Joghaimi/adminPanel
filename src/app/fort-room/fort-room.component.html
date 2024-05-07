@@ -44,7 +44,7 @@
                         <p class="text-muted">Is Occupied</p>
                     </div>
                     <div class="col">
-                        <div class="badge badge-success">true</div>
+                        <div class="badge" [class.badge-success]="roomStatus === 'Empty'" [class.badge-danger]="roomStatus !== 'Empty'">true</div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -52,7 +52,7 @@
                         <p class="text-muted">Room Status</p>
                     </div>
                     <div class="col">
-                        <div class="badge badge-warning">{{roomStatus}}</div>
+                        <div class="badge badge-info">{{roomStatus}}</div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -60,7 +60,7 @@
                         <p class="text-muted">Door Status</p>
                     </div>
                     <div class="col">
-                        <div class="badge badge-danger">{{DoorStatus}}</div>
+                        <div class="badge" [class.badge-success]="roomStatus === 'Open'" [class.badge-danger]="roomStatus !== 'Open'">{{DoorStatus}}</div>
                     </div>
                 </div>
             </div>
