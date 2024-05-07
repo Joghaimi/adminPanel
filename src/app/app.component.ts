@@ -157,9 +157,9 @@ export class AppComponent {
     this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
-          this.FortDoorStatus = e?.doorStatus;
-          this.FortTeamName = e?.teamName;
-          this.FortScore = e?.score;
+          this.ShootingDoorStatus = e?.doorStatus;
+          this.ShootingTeamName = e?.teamName;
+          this.ShootingScore = e?.score;
         }
       }
     );
