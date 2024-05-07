@@ -145,8 +145,8 @@ export class AppComponent {
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
-          this.FortRoomStatus = e?.status;
-          this.FortTime = e.time;
+          this.ShootingRoomStatus = e?.status;
+          this.ShootingTime = e.time;
         }
       }
     );
