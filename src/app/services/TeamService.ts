@@ -10,14 +10,14 @@ export class TeamService {
 
   constructor(private httpClient: HttpClient) { }
 
-  RoomTimeAndStatus(roomName1: string, roomName: string) : Observable<any>{
+  RoomTimeAndStatus(roomName1: string, roomName: string): Observable<any> {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/TimeAndStatus');
   }
-  RoomInfo(roomName1: string, roomName: string) : Observable<any>{
+  RoomInfo(roomName1: string, roomName: string): Observable<any> {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RoomInfo');
   }
-  ChangeRoomStatus(roomName1: string, roomName: string,roomStatus:string) : Observable<any>{
-    return this.httpClient.post('http://' + roomName1 + '.local:5000/api/' + roomName + '/RoomStatus',roomStatus);
+  ChangeRoomStatus(roomName1: string, roomName: string, roomStatus: string): Observable<any> {
+    return this.httpClient.post('http://' + roomName1 + '.local:5000/api/' + roomName + '/RoomStatus?gameStatus=' + roomStatus, roomStatus);
   }
 
 
