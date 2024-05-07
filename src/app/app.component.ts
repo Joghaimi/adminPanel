@@ -30,18 +30,22 @@ export class AppComponent {
   FortDoorStatus = "Closed";
   FortIsOnline = "Online";
   FortTeamName = "--";
-  FortScore: number = 1.5;
+  FortScore: number = 0;
 
 
+  ShootingRoomStatus = "Empty";
+  ShootingTime = 0;
+  ShootingDoorStatus = "Closed";
+  ShootingIsOnline = "Online";
+  ShootingTeamName = "--";
+  ShootingScore: number = 0;
 
 
 
   FloorIsLavaRoomStatus = "Empty";
   FloorIsLavaTime = 0;
 
-  ShootingRoomStatus = "Empty";
-  ShootingTime = 0;
-
+ 
   DivingRoomStatus = "Empty";
   DivingTime = 0;
 
@@ -58,13 +62,16 @@ export class AppComponent {
       .subscribe(() => {
         // Card Info 
         this.getFortRoomStatusAndTime();
+        this.getShootingRoomStatusAndTime();
 
         // FortRoom Shown
         if (this.showFortRoom) {
           this.getFortRoomInfo();
         }
 
-
+        if (this.showShootingRoom) {
+          this.getShootingRoomInfo();
+        }
 
 
 
@@ -120,6 +127,33 @@ export class AppComponent {
   getFortRoomInfo() {
     let gameUrl1 = "fort";
     let gameUrl = "fortRoom";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.FortDoorStatus = e?.doorStatus;
+          this.FortTeamName = e?.teamName;
+          this.FortScore = e?.score;
+        }
+      }
+    );
+  }
+
+
+  getShootingRoomStatusAndTime() {
+    let gameUrl1 = "shooting";
+    let gameUrl = "shootingRoom";
+    this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.FortRoomStatus = e?.status;
+          this.FortTime = e.time;
+        }
+      }
+    );
+  }
+  getShootingRoomInfo() {
+    let gameUrl1 = "shooting";
+    let gameUrl = "shootingRoom";
     this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {

@@ -16,7 +16,7 @@ export class FortRoomComponent {
   @Input() DoorStatus: string = "Closed";
   @Input() isOnline: string = "Online";
   @Input() TeamName: string = "--";
-  @Input() Score: number = 1.5;
+  @Input() Score: number = 0;
   gameUrl1 = "fort";
   gameUrl = "fortRoom";
   constructor(private teamService: TeamService) {

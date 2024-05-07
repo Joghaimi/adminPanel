@@ -92,7 +92,7 @@
               <app-room-card class="col" color="card-dark-blue" roomName="Shooting Room" [roomStatus]="ShootingRoomStatus"
                 (click)="showShooting()"></app-room-card>
               <app-room-card class="col" color="card-light-danger" roomName="Diving Room" [roomStatus]="DivingRoomStatus"
-              [roomTime]="FortTime | timeFormat" (click)="showDiving()"></app-room-card>
+              [roomTime]="DivingTime | timeFormat" (click)="showDiving()"></app-room-card>
               <app-room-card class="col" roomName="Plus/Minus Room" [roomStatus]="PlusRoomStatus"
                 (click)="showPlus()"></app-room-card>
               <app-room-card class="col" color="card-success" roomName="Floor Is Lava Room" [roomStatus]="FloorIsLavaRoomStatus"
@@ -109,7 +109,16 @@
             [TeamName] ="FortTeamName"
             [Score] ="FortScore"
           ></app-fort-room>
-          <app-shooting-room class="col grid-margin stretch-card" *ngIf="showShootingRoom"></app-shooting-room>
+          <app-shooting-room class="col grid-margin stretch-card" *ngIf="showShootingRoom"
+            [roomStatus] ="ShootingRoomStatus"
+            [roomTime] ="ShootingTime | timeFormat"
+            [DoorStatus] ="ShootingDoorStatus"
+            [isOnline] ="ShootingIsOnline"
+            [TeamName] ="ShootingTeamName"
+            [Score] ="ShootingScore"
+          
+          
+          ></app-shooting-room>
           <app-diving-room class="col grid-margin stretch-card" *ngIf="showDivingRoom"></app-diving-room>
           <app-plus-room class="col grid-margin stretch-card" *ngIf="showPlusMinusRoom"></app-plus-room>
           <app-floor-room class="col grid-margin stretch-card" *ngIf="showFloorIsLavaRoom"></app-floor-room>
