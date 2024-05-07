@@ -57,6 +57,10 @@ export class AppComponent {
 
   PlusRoomStatus = "Empty";
   PlusTime = 0;
+  PlusDoorStatus = "Closed";
+  PlussOnline = "Online";
+  PluseamName = "--";
+  Pluscore: number = 0;
 
 
   constructor(private teamService: TeamService) {
@@ -70,7 +74,7 @@ export class AppComponent {
         this.getFortRoomStatusAndTime();
         this.getShootingRoomStatusAndTime();
         this.getDivingRoomStatusAndTime();
-
+        // this.
 
         // FortRoom Shown
         if (this.showFortRoom) {
@@ -193,7 +197,7 @@ export class AppComponent {
     this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
-          this.DivingRoomStatus = e?.doorStatus;
+          this.DivingDoorStatus = e?.doorStatus;
           this.DivnigTeamName = e?.teamName;
           this.DivnigScore = e?.score;
         }
