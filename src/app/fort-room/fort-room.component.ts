@@ -33,11 +33,17 @@ export class FortRoomComponent {
   changeRoomStatus(roomStatus: string) {
     this.teamService.ChangeRoomStatus(this.gameUrl1, this.gameUrl, roomStatus).subscribe();
   }
-  changeDoorStatus(doorStatus: string){
+  changeDoorStatus(doorStatus: string) {
     this.teamService.ChangeDoorStatus(this.gameUrl1, this.gameUrl, doorStatus).subscribe();
   }
-  SetRoomColor(rgbColor:string){
+  SetRoomColor(rgbColor: string) {
     this.teamService.SetRoomColor(this.gameUrl1, this.gameUrl, rgbColor).subscribe();
   }
+  ControlObstacle(status: string) {
+    if (status == "start")
+      this.teamService.ControlObstacle(this.gameUrl1, this.gameUrl, true).subscribe();
+    else
+      this.teamService.ControlObstacle(this.gameUrl1, this.gameUrl, false).subscribe();
 
+  }
 }
