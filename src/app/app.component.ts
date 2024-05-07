@@ -58,9 +58,9 @@ export class AppComponent {
   PlusRoomStatus = "Empty";
   PlusTime = 0;
   PlusDoorStatus = "Closed";
-  PlussOnline = "Online";
-  PluseamName = "--";
-  Pluscore: number = 0;
+  PlusIsOnline = "Online";
+  PlusTeamName = "--";
+  PlusScore: number = 0;
 
 
   constructor(private teamService: TeamService) {
@@ -74,7 +74,7 @@ export class AppComponent {
         this.getFortRoomStatusAndTime();
         this.getShootingRoomStatusAndTime();
         this.getDivingRoomStatusAndTime();
-        // this.
+        this.getPlusRoomStatusAndTime();
 
         // FortRoom Shown
         if (this.showFortRoom) {
@@ -86,8 +86,8 @@ export class AppComponent {
         }
         if(this.showDivingRoom)
           this.getDivingRoomInfo();
-
-
+        if(this.showPlusMinusRoom)
+          this.getPlusRoomInfo();
 
 
 
@@ -205,5 +205,31 @@ export class AppComponent {
     );
   }
 
+  getPlusRoomStatusAndTime(){
+    let gameUrl1 = "dark";
+    let gameUrl = "darkRoom";
+    this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.PlusRoomStatus = e?.status;
+          this.PlusTime = e.time;
+        }
+      }
+    );
+  }
+
+  getPlusRoomInfo() {
+    let gameUrl1 = "dark";
+    let gameUrl = "darkRoom";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.PlusDoorStatus = e?.doorStatus;
+          this.PlusTeamName = e?.teamName;
+          this.PlusScore = e?.score;
+        }
+      }
+    );
+  }
 
 }

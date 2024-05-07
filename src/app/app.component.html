@@ -112,7 +112,10 @@
           <app-diving-room class="col grid-margin stretch-card" *ngIf="showDivingRoom" [roomStatus]="DivingRoomStatus"
             [roomTime]="DivingTime | timeFormat" [DoorStatus]="DivingDoorStatus" [isOnline]="DivnigIsOnline"
             [TeamName]="DivnigTeamName" [Score]="DivnigScore"></app-diving-room>
-          <app-plus-room class="col grid-margin stretch-card" *ngIf="showPlusMinusRoom"></app-plus-room>
+          <app-plus-room class="col grid-margin stretch-card" *ngIf="showPlusMinusRoom"  
+          [roomStatus]="PlusRoomStatus"
+          [roomTime]="PlusTime | timeFormat" [DoorStatus]="PlusDoorStatus" [isOnline]="PlusIsOnline"
+          [TeamName]="PlusTeamName" [Score]="PlusScore"></app-plus-room>
           <app-floor-room class="col grid-margin stretch-card" *ngIf="showFloorIsLavaRoom"></app-floor-room>
         </div>
       </div>
