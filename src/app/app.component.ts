@@ -140,8 +140,8 @@ export class AppComponent {
 
 
   getShootingRoomStatusAndTime() {
-    let gameUrl1 = "shooting";
-    let gameUrl = "shootingRoom";
+    let gameUrl1 = "Shooting";
+    let gameUrl = "Shooting";
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
@@ -153,7 +153,7 @@ export class AppComponent {
   }
   getShootingRoomInfo() {
     let gameUrl1 = "shooting";
-    let gameUrl = "shootingRoom";
+    let gameUrl = "Shooting";
     this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
