@@ -36,5 +36,8 @@ export class FortRoomComponent {
   changeDoorStatus(doorStatus: string){
     this.teamService.ChangeDoorStatus(this.gameUrl1, this.gameUrl, doorStatus).subscribe();
   }
+  SetRoomColor(rgbColor:string){
+    this.teamService.SetRoomColor(this.gameUrl1, this.gameUrl, rgbColor).subscribe();
+  }
 
 }

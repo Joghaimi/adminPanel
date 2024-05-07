@@ -22,7 +22,9 @@ export class TeamService {
   ChangeDoorStatus(roomName1: string, roomName: string, doorStatus: string): Observable<any> {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/DoorControl?doorStatus=' + doorStatus);
   }
-
+  SetRoomColor(roomName1: string, roomName: string, rgbcolor: string): Observable<any> {
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RGBColor?newColor=' + rgbcolor);
+  }
 
   // getTeamMembers(): Observable<any[]> {
   //   // return this.httpClient.get<any[]>('https://gathering.local:7248/GatheringRoom/getThePlayers');

@@ -111,16 +111,16 @@
                         <span class="text-muted">RGBLight</span>
                     </div>
                     <div class="col-6">
-                        <select class="form-select  form-control">
-                            <option value="start">Red</option>
-                            <option value="Stop">Blue</option>
-                            <option value="Stop">Yellow</option>
-                            <option value="Stop">White</option>
-                            <option value="Stop">Off</option>
+                        <select class="form-select  form-control"  #rgbColor>
+                            <option value="Red">Red</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="White">White</option>
+                            <option value="Off">Off</option>
                         </select>
                     </div>
                     <div class="col-2">
-                        <button type="button" class="btn btn-success btn-rounded btn-icon">
+                        <button type="button" class="btn btn-success btn-rounded btn-icon" (click) ="SetRoomColor(rgbColor.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>
