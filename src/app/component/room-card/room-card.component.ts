@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './room-card.component.css'
 })
 export class RoomCardComponent {
-  @Input() color: string ="card-light-blue";
-  @Input() roomName: string ="card-light-blue";
-  @Input() roomStatus: string ="Empty";
-  @Input() roomTime: string ="00:00";
+  @Input() color: string = "card-light-blue";
+  @Input() roomName: string = "card-light-blue";
+  @Input() roomStatus: string = "Empty";
+  @Input() roomTime: string = "0:01";
 
 }

@@ -10,12 +10,13 @@ import { ShootingRoomComponent } from './shooting-room/shooting-room.component';
 import { DivingRoomComponent } from './diving-room/diving-room.component';
 import { PlusRoomComponent } from './plus-room/plus-room.component';
 import { FloorRoomComponent } from './floor-room/floor-room.component';
+import { TimeFormatPipe } from './time-format.pipe';
 // import { TimeFormatPipe } from './time-format.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    TimeFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -27,11 +28,14 @@ import { FloorRoomComponent } from './floor-room/floor-room.component';
     DivingRoomComponent,
     PlusRoomComponent,
     FloorRoomComponent,
-    HttpClientModule
+    HttpClientModule,
+    
 
 
   ],
-  providers: [],
+  providers: [    
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

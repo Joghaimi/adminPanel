@@ -13,7 +13,9 @@ export class TeamService {
   RoomTimeAndStatus(roomName1: string, roomName: string) : Observable<any>{
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/TimeAndStatus');
   }
-
+  RoomInfo(roomName1: string, roomName: string) : Observable<any>{
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RoomInfo');
+  }
 
 
 

@@ -27,10 +27,26 @@ export class AppComponent {
 
   FortRoomStatus = "Empty";
   FortTime = 0;
+  FortDoorStatus = "Closed";
+  FortIsOnline = "Online";
+  FortTeamName = "--";
+  FortScore: number = 1.5;
+
+
+
+
+
   FloorIsLavaRoomStatus = "Empty";
+  FloorIsLavaTime = 0;
+
   ShootingRoomStatus = "Empty";
+  ShootingTime = 0;
+
   DivingRoomStatus = "Empty";
+  DivingTime = 0;
+
   PlusRoomStatus = "Empty";
+  PlusTime = 0;
 
 
   constructor(private teamService: TeamService) {
@@ -44,7 +60,21 @@ export class AppComponent {
   getRoomsStatusEachSec() {
     interval(1000)
       .subscribe(() => {
+        // Card Info 
         this.getFortRoomStatusAndTime();
+
+        // FortRoom Shown
+        if (this.showFortRoom) {
+          this.getFortRoomInfo();
+        }
+
+
+
+
+
+
+
+
       });
   }
 
@@ -92,7 +122,19 @@ export class AppComponent {
         }
       }
     );
-
+  }
+  getFortRoomInfo() {
+    let gameUrl1 = "fort";
+    let gameUrl = "fortRoom";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.FortDoorStatus = e?.doorStatus;
+          this.FortTeamName = e?.teamName;
+          this.FortScore = e?.Score;
+        }
+      }
+    );
   }
 
 
