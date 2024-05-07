@@ -35,7 +35,7 @@ export class AppComponent {
 
   constructor(private teamService: TeamService) {
 
-
+    this.getRoomsStatusEachSec();
 
 
 
@@ -87,6 +87,8 @@ export class AppComponent {
         if (e != null) {
           this.FortRoomStatus = e?.status;
           this.FortTime = e.time;
+          console.log(this.FortRoomStatus);
+          console.log(this.FortTime);
         }
       }
     );
