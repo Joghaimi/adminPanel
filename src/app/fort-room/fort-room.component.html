@@ -44,7 +44,9 @@
                         <p class="text-muted">Is Occupied</p>
                     </div>
                     <div class="col">
-                        <div class="badge" [class.badge-success]="roomStatus === 'Empty'" [class.badge-danger]="roomStatus !== 'Empty'">true</div>
+                        <div class="badge" [class.badge-success]="roomStatus === 'Empty'"
+                            [class.badge-danger]="roomStatus !== 'Empty'">
+                            {{roomStatus === 'Empty'?"False":"true"}}</div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -60,7 +62,8 @@
                         <p class="text-muted">Door Status</p>
                     </div>
                     <div class="col">
-                        <div class="badge" [class.badge-success]="DoorStatus === 'Open'" [class.badge-danger]="DoorStatus !== 'Open'">{{DoorStatus}}</div>
+                        <div class="badge" [class.badge-success]="DoorStatus === 'Open'"
+                            [class.badge-danger]="DoorStatus !== 'Open'">{{DoorStatus}}</div>
                     </div>
                 </div>
             </div>
@@ -79,8 +82,7 @@
                     </div>
                     <div class="col-2">
                         <button type="button" class="btn btn-success btn-rounded btn-icon"
-                        (click)="changeRoomStatus(newroomStatus.value)"
-                        >
+                            (click)="changeRoomStatus(newroomStatus.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>
@@ -136,7 +138,8 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <button type="button" class="btn btn-success btn-rounded btn-icon" (click)="changeDoorStatus(newDoorStatus.value)">
+                        <button type="button" class="btn btn-success btn-rounded btn-icon"
+                            (click)="changeDoorStatus(newDoorStatus.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>
