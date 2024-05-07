@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TeamService } from '../services/TeamService';
 
 @Component({
   selector: 'app-fort-room',
@@ -16,15 +17,21 @@ export class FortRoomComponent {
   @Input() isOnline: string = "Online";
   @Input() TeamName: string = "--";
   @Input() Score: number = 1.5;
+  gameUrl1 = "fort";
+  gameUrl = "fortRoom";
+  constructor(private teamService: TeamService) {
 
-  constructor() {
-    // super();
   }
 
   numberToTime(value: number): string {
     const minutes = Math.floor(value / 60);
     const seconds = value % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
+
+  changeRoomStatus(roomStatus: string) {
+    this.teamService.ChangeRoomStatus(this.gameUrl1, this.gameUrl, roomStatus).subscribe();
   }
 
 }
