@@ -89,7 +89,7 @@
                  
               <app-room-card class="col" color="card-tale" roomName="Fort Room" [roomStatus]="FortRoomStatus" [roomTime]="FortTime | timeFormat"
                 (click)="showFort()"></app-room-card>
-              <app-room-card class="col" color="card-dark-blue" roomName="Shooting Room" [roomStatus]="ShootingRoomStatus"
+              <app-room-card class="col" color="card-dark-blue" roomName="Shooting Room" [roomStatus]="ShootingRoomStatus"  [roomTime]="ShootingTime | timeFormat"
                 (click)="showShooting()"></app-room-card>
               <app-room-card class="col" color="card-light-danger" roomName="Diving Room" [roomStatus]="DivingRoomStatus"
               [roomTime]="DivingTime | timeFormat" (click)="showDiving()"></app-room-card>
