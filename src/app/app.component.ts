@@ -51,7 +51,10 @@ export class AppComponent {
 
   FloorIsLavaRoomStatus = "Empty";
   FloorIsLavaTime = 0;
-
+  FloorIsLavaDoorStatus = "Closed";
+  FloorIsLavaIsOnline = "Online";
+  FloorIsLavaTeamName = "--";
+  FloorIsLavaScore: number = 0;
  
  
 
@@ -75,6 +78,7 @@ export class AppComponent {
         this.getShootingRoomStatusAndTime();
         this.getDivingRoomStatusAndTime();
         this.getPlusRoomStatusAndTime();
+        this.getFloorRoomStatusAndTime();
 
         // FortRoom Shown
         if (this.showFortRoom) {
@@ -89,7 +93,8 @@ export class AppComponent {
         if(this.showPlusMinusRoom)
           this.getPlusRoomInfo();
 
-
+        if(this.showFloorIsLavaRoom)
+          this.getFloorRoomInfo();
 
       });
   }
@@ -232,4 +237,29 @@ export class AppComponent {
     );
   }
 
+  getFloorRoomStatusAndTime(){
+    let gameUrl1 = "floor";
+    let gameUrl = "floorislava";
+    this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.FloorIsLavaRoomStatus = e?.status;
+          this.FloorIsLavaTime = e.time;
+        }
+      }
+    );
+  }
+  getFloorRoomInfo(){
+    let gameUrl1 = "floor";
+    let gameUrl = "floorislava";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.FloorIsLavaDoorStatus = e?.doorStatus;
+          this.FloorIsLavaTeamName = e?.teamName;
+          this.FloorIsLavaScore = e?.score;
+        }
+      }
+    );
+  }
 }

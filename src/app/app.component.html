@@ -116,7 +116,12 @@
           [roomStatus]="PlusRoomStatus"
           [roomTime]="PlusTime | timeFormat" [DoorStatus]="PlusDoorStatus" [isOnline]="PlusIsOnline"
           [TeamName]="PlusTeamName" [Score]="PlusScore"></app-plus-room>
-          <app-floor-room class="col grid-margin stretch-card" *ngIf="showFloorIsLavaRoom"></app-floor-room>
+          <app-floor-room class="col grid-margin stretch-card" *ngIf="showFloorIsLavaRoom"
+          [roomStatus]="FloorIsLavaRoomStatus"
+          [roomTime]="FloorIsLavaTime | timeFormat" [DoorStatus]="FloorIsLavaDoorStatus" [isOnline]="FloorIsLavaIsOnline"
+          [TeamName]="FloorIsLavaTeamName" [Score]="FloorIsLavaScore"
+          
+          ></app-floor-room>
         </div>
       </div>
       <!-- content-wrapper ends -->
