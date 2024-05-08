@@ -31,4 +31,7 @@ export class TeamService {
   RestartGame(roomName1: string, roomName: string): Observable<any> {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RestartService');
   }
+  RetrieveData(roomName1: string, roomName: string): Observable<any> {
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RetrieveData');
+  }
 }

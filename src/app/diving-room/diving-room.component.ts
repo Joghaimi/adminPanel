@@ -33,5 +33,8 @@ export class DivingRoomComponent {
   restartService() {
     this.teamService.RestartGame(this.gameUrl1, this.gameUrl).subscribe();
   }
+  retrieveData(){
+    this.teamService.RetrieveData(this.gameUrl1, this.gameUrl).subscribe();
+  }
 
 }
