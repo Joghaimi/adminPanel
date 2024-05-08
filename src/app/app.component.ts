@@ -55,8 +55,8 @@ export class AppComponent {
   FloorIsLavaIsOnline = "Online";
   FloorIsLavaTeamName = "--";
   FloorIsLavaScore: number = 0;
- 
- 
+
+
 
   PlusRoomStatus = "Empty";
   PlusTime = 0;
@@ -88,12 +88,12 @@ export class AppComponent {
         if (this.showShootingRoom) {
           this.getShootingRoomInfo();
         }
-        if(this.showDivingRoom)
+        if (this.showDivingRoom)
           this.getDivingRoomInfo();
-        if(this.showPlusMinusRoom)
+        if (this.showPlusMinusRoom)
           this.getPlusRoomInfo();
 
-        if(this.showFloorIsLavaRoom)
+        if (this.showFloorIsLavaRoom)
           this.getFloorRoomInfo();
 
       });
@@ -137,7 +137,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.FortRoomStatus = e?.status;
-          this.FortTime = e.time;
+          if (this.FortRoomStatus == "Started")
+            this.FortTime = e.time;
+          else
+            this.FortTime = 0;
         }
       }
     );
@@ -164,7 +167,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.ShootingRoomStatus = e?.status;
-          this.ShootingTime = e.time;
+          if (this.ShootingRoomStatus == "Started")
+            this.ShootingTime = e.time;
+          else
+            this.ShootingTime = 0;
         }
       }
     );
@@ -184,14 +190,17 @@ export class AppComponent {
   }
 
 
-  getDivingRoomStatusAndTime(){
+  getDivingRoomStatusAndTime() {
     let gameUrl1 = "diving";
     let gameUrl = "diving";
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
           this.DivingRoomStatus = e?.status;
-          this.DivingTime = e.time;
+          if (this.DivingRoomStatus == "Started")
+            this.DivingTime = e.time;
+          else
+            this.DivingTime = 0;
         }
       }
     );
@@ -210,14 +219,17 @@ export class AppComponent {
     );
   }
 
-  getPlusRoomStatusAndTime(){
+  getPlusRoomStatusAndTime() {
     let gameUrl1 = "dark";
     let gameUrl = "darkRoom";
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
           this.PlusRoomStatus = e?.status;
-          this.PlusTime = e.time;
+          if (this.PlusRoomStatus == "Started")
+            this.PlusTime = e.time;
+          else
+            this.PlusTime = 0;
         }
       }
     );
@@ -237,19 +249,22 @@ export class AppComponent {
     );
   }
 
-  getFloorRoomStatusAndTime(){
+  getFloorRoomStatusAndTime() {
     let gameUrl1 = "floor";
     let gameUrl = "floorislava";
     this.teamService.RoomTimeAndStatus(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
           this.FloorIsLavaRoomStatus = e?.status;
-          this.FloorIsLavaTime = e.time;
+          if (this.FloorIsLavaRoomStatus == "Started")
+            this.FloorIsLavaTime = e.time;
+          else
+            this.FloorIsLavaTime = 0;
         }
       }
     );
   }
-  getFloorRoomInfo(){
+  getFloorRoomInfo() {
     let gameUrl1 = "floor";
     let gameUrl = "floorislava";
     this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
