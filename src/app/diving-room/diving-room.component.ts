@@ -31,10 +31,16 @@ export class DivingRoomComponent {
     this.teamService.SetRoomColor(this.gameUrl1, this.gameUrl, rgbColor).subscribe();
   }
   restartService() {
-    this.teamService.RestartGame(this.gameUrl1, this.gameUrl).subscribe();
+    let text = "Are You sure of restarting the game ? ";
+    if (confirm(text) == true) {
+      this.teamService.RestartGame(this.gameUrl1, this.gameUrl).subscribe();
+    }
   }
-  retrieveData(){
-    this.teamService.RetrieveData(this.gameUrl1, this.gameUrl).subscribe();
+  retrieveData() {
+    let text = "Are You sure ? ";
+    if (confirm(text) == true) {
+      this.teamService.RetrieveData(this.gameUrl1, this.gameUrl).subscribe();
+    }
   }
 
 }

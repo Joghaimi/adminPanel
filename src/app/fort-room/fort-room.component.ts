@@ -46,4 +46,16 @@ export class FortRoomComponent {
       this.teamService.ControlObstacle(this.gameUrl1, this.gameUrl, false).subscribe();
 
   }
+  restartService() {
+    let text = "Are You sure of restarting the game ? ";
+    if (confirm(text) == true) {
+      this.teamService.RestartGame(this.gameUrl1, this.gameUrl).subscribe();
+    }
+  }
+  retrieveData() {
+    let text = "Are You sure ? ";
+    if (confirm(text) == true) {
+      this.teamService.RetrieveData(this.gameUrl1, this.gameUrl).subscribe();
+    }
+  }
 }
