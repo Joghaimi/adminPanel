@@ -30,5 +30,8 @@ export class DivingRoomComponent {
   SetRoomColor(rgbColor: string) {
     this.teamService.SetRoomColor(this.gameUrl1, this.gameUrl, rgbColor).subscribe();
   }
-  
+  restartService() {
+    this.teamService.RestartGame(this.gameUrl1, this.gameUrl).subscribe();
+  }
+
 }

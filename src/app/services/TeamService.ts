@@ -28,5 +28,7 @@ export class TeamService {
   ControlObstacle(roomName1: string, roomName: string, status: boolean): Observable<any> {
     return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/Obstacle?status=' + status);
   }
-  
+  RestartGame(roomName1: string, roomName: string): Observable<any> {
+    return this.httpClient.get('http://' + roomName1 + '.local:5000/api/' + roomName + '/RestartService');
+  }
 }
