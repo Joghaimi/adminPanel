@@ -137,10 +137,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.FortRoomStatus = e?.status;
-          if (this.FortRoomStatus == "Started")
+          // if (this.FortRoomStatus == "Started")
             this.FortTime = e.time;
-          else
-            this.FortTime = 0;
+          // else
+            // this.FortTime = 0;
         }
       }
     );
@@ -167,10 +167,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.ShootingRoomStatus = e?.status;
-          if (this.ShootingRoomStatus == "Started")
+          // if (this.ShootingRoomStatus == "Started")
             this.ShootingTime = e.time;
-          else
-            this.ShootingTime = 0;
+          // else
+            // this.ShootingTime = 0;
         }
       }
     );
@@ -197,10 +197,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.DivingRoomStatus = e?.status;
-          if (this.DivingRoomStatus == "Started")
+          // if (this.DivingRoomStatus == "Started")
             this.DivingTime = e.time;
-          else
-            this.DivingTime = 0;
+          // else
+            // this.DivingTime = 0;
         }
       }
     );
@@ -226,10 +226,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.PlusRoomStatus = e?.status;
-          if (this.PlusRoomStatus == "Started")
+          // if (this.PlusRoomStatus == "Started")
             this.PlusTime = e.time;
-          else
-            this.PlusTime = 0;
+          // else
+            // this.PlusTime = 0;
         }
       }
     );
@@ -256,10 +256,10 @@ export class AppComponent {
       e => {
         if (e != null) {
           this.FloorIsLavaRoomStatus = e?.status;
-          if (this.FloorIsLavaRoomStatus == "Started")
+          // if (this.FloorIsLavaRoomStatus == "Started")
             this.FloorIsLavaTime = e.time;
-          else
-            this.FloorIsLavaTime = 0;
+          // else
+            // this.FloorIsLavaTime = 0;
         }
       }
     );

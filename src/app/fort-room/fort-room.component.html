@@ -2,88 +2,90 @@
     <div class="card-body">
         <p class="card-title text-primary">Fort Room</p>
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Team Name</p>
                     </div>
-                    <div class="col">
+                    <div class="col-4">
                         <span class="text-primary font-weight-medium">{{TeamName ==""?"--":TeamName}}</span>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Score</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <span class="text-primary font-weight-medium">{{Score}}</span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Time</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <span class="text-primary font-weight-medium">{{roomTime}}</span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Restart Game</p>
                     </div>
-                    <div class="col">
-                        <div class="badge badge-danger" style="cursor:  pointer !important;" (click)="restartService()">Restart</div>
+                    <div class="col-6">
+                        <div class="badge badge-danger" style="cursor:  pointer !important;" (click)="restartService()">
+                            Restart</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Retrieve Data</p>
                     </div>
-                    <div class="col">
-                        <div class="badge badge-danger" style="cursor:  pointer !important;" (click)="retrieveData()">retrieve</div>
+                    <div class="col-6">
+                        <div class="badge badge-danger" style="cursor:  pointer !important;" (click)="retrieveData()">
+                            retrieve</div>
                     </div>
                 </div>
 
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Game</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <div class="badge badge-success">{{isOnline}}</div>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Is Occupied</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <div class="badge" [class.badge-success]="roomStatus === 'Empty'"
                             [class.badge-danger]="roomStatus !== 'Empty'">
                             {{roomStatus === 'Empty'?"False":"true"}}</div>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-4">
+                    <div class="col-6">
                         <p class="text-muted">Room Status</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <div class="badge badge-info">{{roomStatus}}</div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-4">
+                <div class="row mt-2 mb-3 ">
+                    <div class="col-6">
                         <p class="text-muted">Door Status</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <div class="badge" [class.badge-success]="DoorStatus === 'Open'"
                             [class.badge-danger]="DoorStatus !== 'Open'">{{DoorStatus}}</div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="row align-items-center">
                     <div class="col-4">
                         <span class="text-muted">Room Status</span>
@@ -115,7 +117,8 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <button type="button" class="btn btn-success btn-rounded btn-icon" (click)="ControlObstacle(obstacleStatus.value)">
+                        <button type="button" class="btn btn-success btn-rounded btn-icon"
+                            (click)="ControlObstacle(obstacleStatus.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>
@@ -127,7 +130,7 @@
                         <span class="text-muted">RGBLight</span>
                     </div>
                     <div class="col-6">
-                        <select class="form-select  form-control"  #rgbColor>
+                        <select class="form-select  form-control" #rgbColor>
                             <option value="Red">Red</option>
                             <option value="Blue">Blue</option>
                             <option value="Yellow">Yellow</option>
@@ -136,7 +139,8 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <button type="button" class="btn btn-success btn-rounded btn-icon" (click) ="SetRoomColor(rgbColor.value)">
+                        <button type="button" class="btn btn-success btn-rounded btn-icon"
+                            (click)="SetRoomColor(rgbColor.value)">
                             <i class="fa fa-paper-plane-o"></i>
                         </button>
                     </div>
