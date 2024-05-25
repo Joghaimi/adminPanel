@@ -86,7 +86,10 @@
         <div class="row">
           <div class="col-md-12 grid-margin transparent">
             <div class="row">
-
+              <app-room-card class="col" color="card-dark-blue" roomName="Gathering Room" roomStatus="Gathering Room"
+              [roomTime]="FortTime | timeFormat" (click)="showGathering()"></app-room-card>
+            </div>
+            <div class="row">
               <app-room-card class="col" color="card-tale" roomName="Fort Room" [roomStatus]="FortRoomStatus"
                 [roomTime]="FortTime | timeFormat" (click)="showFort()"></app-room-card>
               <app-room-card class="col" color="card-dark-blue" roomName="Shooting Room"
@@ -103,6 +106,7 @@
           </div>
         </div>
         <div class="row">
+          <app-gathering-room class="col grid-margin stretch-card" *ngIf="showGatheringRoom"></app-gathering-room>
           <app-fort-room class="col grid-margin stretch-card" *ngIf="showFortRoom" [roomStatus]="FortRoomStatus"
             [roomTime]="FortTime | timeFormat" [DoorStatus]="FortDoorStatus" [isOnline]="FortIsOnline"
             [TeamName]="FortTeamName" [Score]="FortScore"></app-fort-room>

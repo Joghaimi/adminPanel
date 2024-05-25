@@ -19,7 +19,8 @@ import { take } from 'rxjs/operators'
 })
 export class AppComponent {
   title = 'adminPanel';
-  showFortRoom = true;
+  showFortRoom = false;
+  showGatheringRoom = true;
   showShootingRoom = false;
   showDivingRoom = false;
   showPlusMinusRoom = false;
@@ -106,12 +107,16 @@ export class AppComponent {
     this.showDivingRoom = false;
     this.showPlusMinusRoom = false;
     this.showFloorIsLavaRoom = false;
+    this.showGatheringRoom =false;
   }
   showFort() {
     this.hideAllRoom();
     this.showFortRoom = true;
   }
-
+  showGathering(){
+    this.hideAllRoom();
+    this.showGatheringRoom =true;
+  }
   showDiving() {
     this.hideAllRoom();
     this.showDivingRoom = true;

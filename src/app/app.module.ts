@@ -11,6 +11,7 @@ import { DivingRoomComponent } from './diving-room/diving-room.component';
 import { PlusRoomComponent } from './plus-room/plus-room.component';
 import { FloorRoomComponent } from './floor-room/floor-room.component';
 import { TimeFormatPipe } from './time-format.pipe';
+import { GatheringRoomComponent } from './gathering-room/gathering-room.component';
 // import { TimeFormatPipe } from './time-format.pipe';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { TimeFormatPipe } from './time-format.pipe';
     DivingRoomComponent,
     PlusRoomComponent,
     FloorRoomComponent,
+    GatheringRoomComponent,
     HttpClientModule,
     
 
