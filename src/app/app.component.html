@@ -106,7 +106,9 @@
           </div>
         </div>
         <div class="row">
-          <app-gathering-room class="col grid-margin stretch-card" *ngIf="showGatheringRoom"></app-gathering-room>
+          <app-gathering-room class="col grid-margin stretch-card" *ngIf="showGatheringRoom"
+            [roomTime]="GatheringTime | timeFormat" [DoorStatus]="GatheringDoorStatus" [isOnline]="GatheringIsOnline"
+            [TeamName]="GatheringTeamName" [Score]="FortScore"></app-gathering-room>
           <app-fort-room class="col grid-margin stretch-card" *ngIf="showFortRoom" [roomStatus]="FortRoomStatus"
             [roomTime]="FortTime | timeFormat" [DoorStatus]="FortDoorStatus" [isOnline]="FortIsOnline"
             [TeamName]="FortTeamName" [Score]="FortScore"></app-fort-room>

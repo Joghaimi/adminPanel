@@ -89,6 +89,7 @@ export class AppComponent {
         this.getDivingRoomStatusAndTime();
         this.getPlusRoomStatusAndTime();
         this.getFloorRoomStatusAndTime();
+        this.getGatheringRoomInfo();
 
         // FortRoom Shown
         if (this.showFortRoom) {

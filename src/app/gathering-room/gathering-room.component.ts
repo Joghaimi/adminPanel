@@ -9,7 +9,12 @@ import { TeamService } from '../services/TeamService';
   styleUrl: './gathering-room.component.css'
 })
 export class GatheringRoomComponent {
+  @Input() roomStatus: string = "Empty";
+  @Input() roomTime: string = "0:01";
   @Input() DoorStatus: string = "Closed";
+  @Input() isOnline: string = "Online";
+  @Input() TeamName: string = "--";
+  @Input() Score: number = 0;
   gameUrl1 = "gathering";
   gameUrl = "GatheringRoom";
   constructor(private teamService: TeamService) {
