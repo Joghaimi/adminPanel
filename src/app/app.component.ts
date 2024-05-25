@@ -176,7 +176,7 @@ export class AppComponent {
   getGatheringRoomInfo() {
     let gameUrl1 = "gathering";
     let gameUrl = "GatheringRoom";
-    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+    this.teamService.gatheringRoomInfo(gameUrl1, gameUrl).subscribe(
       e => {
         if (e != null) {
           this.GatheringDoorStatus = e?.doorStatus;
