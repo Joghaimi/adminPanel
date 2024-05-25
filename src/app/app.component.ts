@@ -26,6 +26,15 @@ export class AppComponent {
   showPlusMinusRoom = false;
   showFloorIsLavaRoom = false;
 
+  GatheringRoomStatus = "Empty";
+  GatheringTime = 0;
+  GatheringDoorStatus = "Closed";
+  GatheringIsOnline = "Online";
+  GatheringTeamName = "--";
+  GatheringScore: number = 0;
+
+
+
   FortRoomStatus = "Empty";
   FortTime = 0;
   FortDoorStatus = "Closed";
@@ -159,6 +168,19 @@ export class AppComponent {
           this.FortDoorStatus = e?.doorStatus;
           this.FortTeamName = e?.teamName;
           this.FortScore = e?.score;
+        }
+      }
+    );
+  }
+  getGatheringRoomInfo() {
+    let gameUrl1 = "gathering";
+    let gameUrl = "GatheringRoom";
+    this.teamService.RoomInfo(gameUrl1, gameUrl).subscribe(
+      e => {
+        if (e != null) {
+          this.GatheringDoorStatus = e?.doorStatus;
+          this.GatheringTeamName = e?.teamName;
+          this.GatheringScore = e?.score;
         }
       }
     );
